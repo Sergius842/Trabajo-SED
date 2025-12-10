@@ -1,0 +1,29 @@
+# ---------------- VIVADO (FPGA) ----------------
+*.jou
+*.log
+*.pb
+*.dcp
+.Xil/
+*.runs/
+*.sim/
+*.cache/
+*.hw/
+*.ip_user_files/
+
+# ---------------- STM32 (MICROS) ----------------
+
+Debug/
+Release/
+.settings/
+.metadata/
+*.elf
+*.bin
+*.hex
+*.map
+*.su
+*.o
+*.d
+
+# ---------------- GENERAL ----------------
+.DS_Store
+Thumbs.db
