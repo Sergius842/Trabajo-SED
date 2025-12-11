@@ -1,14 +1,14 @@
-\# Trabajos SED 2025-2026 - Grupo X
+\# Trabajos SED 2025-2026 - Grupo 24
 
 
 
 \## Integrantes y Roles (VHDL)
 
-\* \[cite\_start]\*\*\[Nombre Alumno 1]:\*\* Arquitecto del Sistema (Integración y Constraints).
+\*\*\[Mario Fernández Lietor]:\*\* Arquitecto del Sistema (Integración y Constraints).
 
-\* \[cite\_start]\*\*\[Nombre Alumno 2]:\*\* Programador (Diseño de componentes VHDL)\[cite: 28].
+\*\*\[Sergio Ballesteros Palomo]:\*\* Programador (Diseño de componentes VHDL).
 
-\* \[cite\_start]\*\*\[Nombre Alumno 3]:\*\* QA (Aseguramiento de calidad y Testbenches)\[cite: 29].
+\*\*\[Alejandro Bonilla Hervás]:\*\* QA (Aseguramiento de calidad y Testbenches).
 
 
 
