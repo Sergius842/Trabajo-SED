@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="67" Path="C:/Users/evaba/Documents/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora/Maquina_Expendedora.xpr">
+<Project Product="Vivado" Version="7" Minor="67" Path="C:/Users/aleja/Downloads/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora/Maquina_Expendedora.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a25978c271a741a6a4c8c6b3ea118dc8"/>
@@ -152,6 +152,20 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sim_1/new/EDGE_DETECTOR_tb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/COUNTER_tb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sim_1/new/PRESCALER_tb.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
