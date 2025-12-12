@@ -115,8 +115,29 @@ component PRESCALER
     );
 end component;
 
+--DECLARACIÓN DE LOS CABLES A USAR:
+signal AUX1: std_logic;
+signal AUX2: std_logic_vector(NUM_MONEDA-1 DOWNTO 0);
+signal AUX3: std_logic_vector(NUM_REFRESCO-1 DOWNTO 0);
+
 
 begin
 
+SYNC: SYNCHRONIZER 
+GENERIC MAP(
+    NUM_REFRESCOS => NUM_REFRESCO,
+    NUM_MONEDAS => NUM_MONEDA
+    )
+PORT MAP(
+    clk => CLK,
+    rst => RESET,
+    asinc_pago => PAGO,
+    asinc_monedas => TIPO_MONEDA,
+    asinc_refresco => TIPO_REFRESCO,
+        
+    sinc_pago => AUX1,
+    sinc_monedas => AUX2,
+    sinc_refresco => AUX3
+    );
 
 end Structural;
