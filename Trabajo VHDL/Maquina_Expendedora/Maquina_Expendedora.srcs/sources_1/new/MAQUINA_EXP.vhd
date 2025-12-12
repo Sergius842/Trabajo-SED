@@ -55,6 +55,67 @@ end MAQUINA_EXP;
 
 architecture Structural of MAQUINA_EXP is
 
+component SYNCHRONIZER is
+    Generic(
+        NUM_REFRESCOS: POSITIVE;
+        NUM_MONEDAS: POSITIVE      
+    );
+    Port(
+        clk: in std_logic;
+        rst: in std_logic;
+        asinc_pago: in std_logic;
+        asinc_monedas: in std_logic_vector(NUM_MONEDAS - 1 downto 0); 
+        asinc_refresco: in std_logic_vector(NUM_REFRESCOS - 1 downto 0);
+        
+        sinc_pago: out std_logic;
+        sinc_monedas: out std_logic_vector(NUM_MONEDAS - 1 downto 0);
+        sinc_refresco: out std_logic_vector(NUM_REFRESCOS - 1 downto 0)
+     );
+end component;
+
+component EDGE_DETECTOR is 
+    Generic(
+        NUM_MONEDAS: positive:= 4       
+    );
+    Port(
+        clk: in std_logic;
+        entrada_moneda: in std_logic_vector(NUM_MONEDAS - 1 downto 0); 
+        flanco_monedas: out std_logic_vector(NUM_MONEDAS - 1 downto 0)
+    );
+    end component;
+    
+component COUNTER
+    Generic(
+        NUM_MONEDAS: positive;
+        NUM_REFRESCOS: positive;
+        TAM_CUENTA: positive       
+    );
+    Port(
+        clk: in std_logic;
+        ce: in std_logic;
+        reset: in std_logic;
+        
+        moneda: in std_logic_vector(NUM_MONEDAS - 1 downto 0);
+        tipo_refrescos: in std_logic_vector(NUM_REFRESCOS - 1 downto 0);
+        error: out std_logic;
+        ok_pago: out std_logic;
+        cuenta: out std_logic_vector(TAM_CUENTA - 1 downto 0);
+        precio: out std_logic_vector(NUM_REFRESCOS * TAM_CUENTA - 1 downto 0);
+        actual_refresco: out std_logic_vector(NUM_REFRESCOS - 1 downto 0)
+   );
+end component;
+
+component PRESCALER
+    generic(
+        PRESCALER_DIV: positive      
+    );
+    port(
+        clk: in std_logic;
+        clk_salida: out std_logic -- Nombre actualizado
+    );
+end component;
+
+
 begin
 
 
