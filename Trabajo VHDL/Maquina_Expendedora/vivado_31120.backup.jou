@@ -1,0 +1,36 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Tue Dec 16 11:31:16 2025
+# Process ID: 31120
+# Current directory: C:/Users/evaba/Documents/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27136 C:\Users\evaba\Documents\Trabajo-SED\Trabajo VHDL\Maquina_Expendedora\Maquina_Expendedora.xpr
+# Log file: C:/Users/evaba/Documents/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora/vivado.log
+# Journal file: C:/Users/evaba/Documents/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora\vivado.jou
+# Running On        :LAPTOP-C6GR7CLH
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz
+# CPU Frequency     :1190 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :8375 MB
+# Swap memory       :13958 MB
+# Total Virtual     :22333 MB
+# Available Virtual :7877 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/evaba/Documents/Trabajo-SED/Trabajo VHDL/Maquina_Expendedora/Maquina_Expendedora.xpr}
+update_compile_order -fileset sources_1
+save_project_as MAQUINA_EXP C:/Users/evaba/Downloads/MAQUINA_EXP -force
+close [ open C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/DISPLAY_CONTROL.vhd w ]
+add_files C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/DISPLAY_CONTROL.vhd
+update_compile_order -fileset sources_1
+close [ open C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/FSM.vhd w ]
+add_files C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/FSM.vhd
+update_compile_order -fileset sources_1
+close [ open C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/DECODER.vhd w ]
+add_files C:/Users/evaba/Downloads/MAQUINA_EXP/MAQUINA_EXP.srcs/sources_1/new/DECODER.vhd
+update_compile_order -fileset sources_1
