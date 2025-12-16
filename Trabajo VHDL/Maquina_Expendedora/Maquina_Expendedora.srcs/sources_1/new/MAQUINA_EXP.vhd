@@ -33,11 +33,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity MAQUINA_EXP is
   generic(
-  NUM_MONEDA: positive:=4;
-  NUM_REFRESCO: positive:=2;
-  NUM_ESTADOS: positive:=4;
-  NUM_SEGMENTOS: positive:=7;
-  NUM_DISPLAYS: positive:=9
+  NUM_MONEDA: positive:= 4;
+  NUM_REFRESCO: positive:= 2;
+  NUM_ESTADOS: positive:= 4;
+  NUM_SEGMENTOS: positive:= 7;
+  NUM_DISPLAYS: positive:= 9;
+  PRESCALER_DIV:  positive := 18;
+  TAM_CUENTA: positive := 5;
+  TAM_CODE: positive := 5
   );
   Port ( 
   CLK: in std_logic;
@@ -84,7 +87,7 @@ component EDGE_DETECTOR is
     );
     end component;
     
-component COUNTER
+component COUNTER is
     Generic(
         NUM_MONEDAS: positive;
         NUM_REFRESCOS: positive;
@@ -105,20 +108,91 @@ component COUNTER
    );
 end component;
 
-component PRESCALER
+component PRESCALER is
     generic(
         PRESCALER_DIV: positive      
     );
     port(
         clk: in std_logic;
-        clk_salida: out std_logic -- Nombre actualizado
+        clk_salida: out std_logic 
     );
 end component;
 
+component DISPLAY_CONTROL is
+    Generic(
+        TAM_CUENTA: positive;
+        NUM_REFRESCOS: positive;
+        TAM_CODE: positive;
+        NUM_ESTADOS: positive;
+        NUM_DISPLAYS: positive
+    );
+    Port(
+        clk : in std_logic;
+        cuenta : in std_logic_vector (TAM_CUENTA - 1 downto 0);
+        tipo_refrescos: in std_logic_vector (NUM_REFRESCOS - 1 downto 0);
+        precio: in std_logic_vector(NUM_REFRESCOS * TAM_CUENTA - 1 downto 0);
+        
+        code_salida : out std_logic_vector (TAM_CODE * NUM_ESTADOS - 1 downto 0);
+        control_salida : out std_logic_vector(NUM_DISPLAYS * NUM_ESTADOS - 1 downto 0)
+    );
+end component;
+
+component FSM is
+    Generic(
+        NUM_REFRESCOS: positive;
+        NUM_ESTADOS: positive;
+        NUM_DISPLAYS: positive;
+        TAM_CODE: positive           
+    );
+    Port( 
+         clk             : in std_logic;
+        reset           : in std_logic;
+
+        btn_pagar       : in std_logic;
+        ok_pago         : in std_logic;
+        error_contador  : in std_logic;
+        tipo_refrescos  : in std_logic_vector(NUM_REFRESCOS - 1 downto 0);
+
+        bus_control_entrada  : in std_logic_vector(NUM_DISPLAYS * NUM_ESTADOS - 1 downto 0);
+        bus_code_entrada     : in std_logic_vector(TAM_CODE * NUM_ESTADOS - 1 downto 0);
+
+        led_error       : out std_logic;
+        led_refresco    : out std_logic;
+        estado_debug    : out std_logic_vector(NUM_ESTADOS - 1 downto 0);
+
+        control_salida     : out std_logic_vector(NUM_DISPLAYS - 1 downto 0);
+        code_salida        : out std_logic_vector(TAM_CODE - 1 downto 0)
+    );
+end component;
+
+component DECODER is
+    Generic(
+         TAM_CODE: positive;
+         NUM_SEGMENTOS: positive      
+    );
+    Port(
+         code_entrada      : in std_logic_vector(TAM_CODE - 1 downto 0);
+        segments_salida : out std_logic_vector(NUM_SEGMENTOS - 1 downto 0)
+    );
+end component;
+
+
 --DECLARACIÓN DE LOS CABLES A USAR:
 signal AUX1: std_logic;
-signal AUX2: std_logic_vector(NUM_MONEDA-1 DOWNTO 0);
-signal AUX3: std_logic_vector(NUM_REFRESCO-1 DOWNTO 0);
+signal AUX2: std_logic_vector(NUM_MONEDA - 1 DOWNTO 0);
+signal AUX3: std_logic_vector(NUM_REFRESCO - 1 DOWNTO 0);
+signal AUX4: std_logic_vector(NUM_MONEDA - 1 DOWNTO 0);
+signal AUX5: std_logic;
+signal AUX6: std_logic_vector(NUM_REFRESCO * TAM_CUENTA - 1 DOWNTO 0);
+signal AUX7: std_logic;
+signal AUX8: std_logic_vector(TAM_CUENTA - 1 DOWNTO 0);
+signal AUX9: std_logic_vector(NUM_REFRESCO - 1 DOWNTO 0);
+signal AUX10: std_logic_vector(TAM_CODE * NUM_ESTADOS - 1 DOWNTO 0);
+signal AUX11: std_logic_vector(NUM_DISPLAYS * NUM_ESTADOS - 1 DOWNTO 0);
+signal AUX12: std_logic_vector(TAM_CODE - 1 DOWNTO 0);
+signal AUX_CLK: std_logic;
+--signal SEGMENTOS:
+--signal DIGCTRL:
 
 
 begin
@@ -139,5 +213,95 @@ PORT MAP(
     sinc_monedas => AUX2,
     sinc_refresco => AUX3
     );
+    
+EDGE: EDGE_DETECTOR 
+GENERIC MAP(
+    NUM_MONEDAS => NUM_MONEDA
+    )
+PORT MAP(
+    clk => CLK,
+    entrada_moneda => AUX2,
+    flanco_monedas => AUX4
+    );
+
+CTR: COUNTER 
+GENERIC MAP(
+    NUM_MONEDAS => NUM_MONEDA,
+    TAM_CUENTA => TAM_CUENTA,
+    NUM_REFRESCOS => NUM_REFRESCO
+    )
+PORT MAP(
+    clk => CLK,
+    ce => AUX1,
+    reset => RESET,
+    tipo_refrescos => AUX3,
+    moneda => AUX4,
+    ok_pago => AUX5,
+    precio => AUX6,
+    error => AUX7,
+    cuenta => AUX8,
+    actual_refresco => AUX9
+    );
+
+PRESC: PRESCALER
+GENERIC MAP(
+    PRESCALER_DIV => PRESCALER_DIV
+)
+PORT MAP(
+    clk => CLK,
+    clk_salida => AUX_CLK
+);
+
+CONTROL: DISPLAY_CONTROL 
+GENERIC MAP(
+    TAM_CUENTA => TAM_CUENTA,
+    NUM_REFRESCOS => NUM_REFRESCO,
+    NUM_ESTADOS => NUM_ESTADOS,
+    TAM_CODE => TAM_CODE,
+    NUM_DISPLAYS => NUM_DISPLAYS
+)
+PORT MAP(
+    cuenta => AUX8,
+    tipo_refrescos => AUX9,
+    precio => AUX6,
+    clk => AUX_CLK,
+    code_salida => AUX10,
+    control_salida => AUX11
+);
+
+MAQ_ESTADOS: FSM
+GENERIC MAP(
+    NUM_REFRESCOS => NUM_REFRESCO,
+    NUM_ESTADOS => NUM_ESTADOS,
+    NUM_DISPLAYS => NUM_DISPLAYS,
+    TAM_CODE => TAM_CODE
+    )
+PORT MAP(
+    clk => CLK,
+    reset => RESET,
+    btn_pagar => AUX1, 
+    ok_pago => AUX5,
+    tipo_refrescos => AUX9,
+    error_contador => AUX7,
+    
+    bus_code_entrada => AUX10,
+    bus_control_entrada => AUX11,
+
+    led_error => ERROR,
+    led_refresco => PRODUCTO_OK,
+    estado_debug => ESTADOS,
+    control_salida => DIGCTRL,
+    code_salida => AUX12
+);
+
+DECODE: DECODER 
+GENERIC MAP(
+    TAM_CODE => TAM_CODE,
+    NUM_SEGMENTOS => NUM_SEGMENTOS
+)
+PORT MAP(
+    code_entrada => AUX12,
+    segments_salida => SEGMENTOS
+);
 
 end Structural;
