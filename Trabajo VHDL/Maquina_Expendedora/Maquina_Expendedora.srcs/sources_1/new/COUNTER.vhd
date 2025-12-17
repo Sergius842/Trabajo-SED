@@ -61,7 +61,7 @@ begin
 
     process(clk, reset)
     begin
-        if reset = '1' then
+        if reset = '0' then
             actual_refresco <= (others => '0');
         elsif rising_edge(clk) then
              if s_cuenta = 0 then 
@@ -72,7 +72,7 @@ begin
 
     process(clk, reset)
     begin
-        if reset = '1' then
+        if reset = '0' then
             s_cuenta <= (others => '0');
         elsif rising_edge(clk) then
             if ce = '1' then

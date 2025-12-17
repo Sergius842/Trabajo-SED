@@ -58,7 +58,7 @@ architecture Behavioral of SYNCHRONIZER is
 begin
     p_synchronization: process(clk, rst)
     begin
-        if rst = '1' then
+        if rst = '0' then
             ff1_monedas <= (others => '0');
             ff2_monedas <= (others => '0');
             ff1_pago <= '0';

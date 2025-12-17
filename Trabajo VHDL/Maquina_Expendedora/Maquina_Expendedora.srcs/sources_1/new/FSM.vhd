@@ -64,7 +64,7 @@ begin
 
     p_state_reg: process(reset, clk)
     begin
-        if reset = '1' then
+        if reset = '0' then
             current_state <= ST_IDLE;
         elsif rising_edge(clk) then
             current_state <= next_state;
