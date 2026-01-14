@@ -1,0 +1,87 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jan 14 19:05:00 2026
+| Host         : LAPTOP-IVTTS1CK running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file MAQUINA_EXP_control_sets_placed.rpt
+| Design       : MAQUINA_EXP
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |     9 |
+|    Minimum number of control sets                        |     9 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    33 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |     9 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     5 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     4 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              60 |           17 |
+| No           | No                    | Yes                    |              23 |           11 |
+| No           | Yes                   | No                     |               4 |            1 |
+| Yes          | No                    | No                     |              10 |            5 |
+| Yes          | No                    | Yes                    |              38 |           21 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------------------------+---------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |             Enable Signal             |         Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+---------------------------------------+---------------------------------+------------------+----------------+--------------+
+|  AUX_CLK_BUFG  |                                       | CONTROL/s_control[3][8]_i_1_n_0 |                1 |              4 |         4.00 |
+|  CLK_IBUF_BUFG | CTR/r_cambio[4]_i_1_n_0               | MAQ_ESTADOS/RESET               |                3 |              5 |         1.67 |
+|  CLK_IBUF_BUFG | CTR/r_cuenta[4]_i_1_n_0               | MAQ_ESTADOS/RESET               |                3 |              5 |         1.67 |
+|  AUX_CLK_BUFG  | CONTROL/s_code[2]_1                   |                                 |                2 |              5 |         2.50 |
+|  AUX_CLK_BUFG  | CONTROL/s_code[1][4]_i_1_n_0          |                                 |                3 |              5 |         1.67 |
+|  CLK_IBUF_BUFG |                                       |                                 |                5 |             18 |         3.60 |
+|  CLK_IBUF_BUFG |                                       | MAQ_ESTADOS/RESET               |               11 |             23 |         2.09 |
+|  CLK_IBUF_BUFG | MAQ_ESTADOS/timer_counter[27]_i_1_n_0 | MAQ_ESTADOS/RESET               |               15 |             28 |         1.87 |
+|  AUX_CLK_BUFG  |                                       |                                 |               12 |             42 |         3.50 |
++----------------+---------------------------------------+---------------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Jan 14 19:04:05 2026
+# Process ID         : 10724
+# Current directory  : D:/1-mario/CURSOS ANTERIORES/UNIVERSIDAD CUARTO/SED/TRABAJOS SED/VHDL/MAQUINA_EXPENDEDORA/TRABAJO_SED_FINAL.runs/impl_1
+# Command line       : vivado.exe -log MAQUINA_EXP.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source MAQUINA_EXP.tcl -notrace
+# Log file           : D:/1-mario/CURSOS ANTERIORES/UNIVERSIDAD CUARTO/SED/TRABAJOS SED/VHDL/MAQUINA_EXPENDEDORA/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.vdi
+# Journal file       : D:/1-mario/CURSOS ANTERIORES/UNIVERSIDAD CUARTO/SED/TRABAJOS SED/VHDL/MAQUINA_EXPENDEDORA/TRABAJO_SED_FINAL.runs/impl_1\vivado.jou
+# Running On         : LAPTOP-IVTTS1CK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+# CPU Frequency      : 1800 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 12789 MB
+# Swap memory        : 4831 MB
+# Total Virtual      : 17621 MB
+# Available Virtual  : 2630 MB
+#-----------------------------------------------------------
+source MAQUINA_EXP.tcl -notrace

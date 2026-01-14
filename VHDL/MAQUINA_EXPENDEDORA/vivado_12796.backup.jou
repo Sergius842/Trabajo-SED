@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Fri Dec 19 10:38:30 2025
+# Process ID: 12796
+# Current directory: C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17752 C:\Users\evaba\Downloads\TRABAJO_SED_FINAL_viernes_pruebas\TRABAJO_SED_FINAL.xpr
+# Log file: C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/vivado.log
+# Journal file: C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas\vivado.jou
+# Running On        :LAPTOP-C6GR7CLH
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz
+# CPU Frequency     :1190 MHz
+# CPU Physical cores:4
+# CPU Logical cores :8
+# Host memory       :8375 MB
+# Swap memory       :15504 MB
+# Total Virtual     :23879 MB
+# Available Virtual :7351 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.xpr
+update_compile_order -fileset sources_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/evaba/Downloads/TRABAJO_SED_FINAL_viernes_pruebas/TRABAJO_SED_FINAL.runs/impl_1/MAQUINA_EXP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+update_compile_order -fileset sources_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
