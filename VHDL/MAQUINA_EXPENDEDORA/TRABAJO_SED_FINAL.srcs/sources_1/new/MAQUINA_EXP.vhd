@@ -227,7 +227,7 @@ CTR: COUNTER
     reset => RESET, 
     rst_fsm => AUX13, 
     tipo_refrescos => AUX3, 
-    moneda => AUX2, 
+    moneda => AUX4, 
     ok_pago => AUX5, 
     precio => AUX6, 
     error => AUX7, 

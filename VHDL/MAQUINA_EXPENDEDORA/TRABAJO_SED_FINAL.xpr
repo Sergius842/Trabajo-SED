@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="68" Path="D:/1-mario/CURSOS ANTERIORES/UNIVERSIDAD CUARTO/SED/TRABAJOS SED/VHDL/MAQUINA_EXPENDEDORA/TRABAJO_SED_FINAL.xpr">
+<Project Product="Vivado" Version="7" Minor="68" Path="D:/1-mario/CURSOS ANTERIORES/UNIVERSIDAD CUARTO/SED/Trabajo-SED/VHDL/MAQUINA_EXPENDEDORA/TRABAJO_SED_FINAL.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="b34e49a83f554e50a7d8edc7ebbc51a0"/>
